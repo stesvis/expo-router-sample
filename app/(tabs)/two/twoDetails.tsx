@@ -1,28 +1,29 @@
-import { StyleSheet } from "react-native";
-
 import { Text, View } from "@/components/Themed";
 import { router } from "expo-router";
+import { StyleSheet } from "react-native";
 
-export default function TabOneScreen() {
+type TwoDetailsPageProps = {};
+
+const TwoDetailsPage = (props: TwoDetailsPageProps) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
+    <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+      <Text style={styles.title}>TwoDetails Page</Text>
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
       <Text
-        onPress={() => router.navigate("/two/twoDetails")}
         lightColor="rgba(100,100,255,0.8)"
         darkColor="rgba(100,100,255,0.8)"
+        onPress={() => router.back()}
         style={{ fontSize: 20 }}
       >
-        Go to Tab 2 details
+        Go Back
       </Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -33,7 +34,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "red",
   },
   separator: {
     marginVertical: 30,
@@ -41,3 +41,5 @@ const styles = StyleSheet.create({
     width: "80%",
   },
 });
+
+export default TwoDetailsPage;
